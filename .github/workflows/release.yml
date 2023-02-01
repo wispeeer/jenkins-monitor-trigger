@@ -52,7 +52,7 @@ jobs:
       with:
         distribution: temurin
         java-version: 11
-    - run: $GITHUB_ACTION_PATH/run.sh
+    - run: .github/run.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
