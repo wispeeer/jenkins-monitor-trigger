@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    Jenkins monitor trigger. Can notify outside client monitor jenkins status.
+</div>
