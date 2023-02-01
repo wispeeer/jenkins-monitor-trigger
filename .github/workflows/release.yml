@@ -35,9 +35,8 @@ jobs:
         java-version: 11
     - name: Buimd plugin
       run: |
-        export MAVEN_OPTS=-Djansi.force=true && mvn -B -V -ntp -Dstyle.color=always -Dset.changelist -DaltDeploymentRepository=maven.jenkins-ci.org::default::https://repo.jenkins-ci.org/releases/ -Pquick-build
+        export MAVEN_OPTS=-Djansi.force=true && mvn -B -V -ntp -Dstyle.color=always -Dset.changelist -DaltDeploymentRepository=maven.jenkins-ci.org::default::https://repo.jenkins-ci.org/releases/ -Pquick-build package
         version=$(mvn -B -ntp -Dset.changelist -Dexpression=project.version -q -DforceStdout help:evaluate) && echo "VERSION=$version" >> $GITHUB_ENV
-        pwd && ls && tree
     - name: Create Release and Upload Release Asset
       uses: softprops/action-gh-release@v1
       with:
