@@ -1,0 +1,16 @@
+# Automates creation of Release Drafts using Release Drafter
+# More Info: https://github.com/jenkinsci/.github/blob/master/.github/release-drafter.adoc
+
+name: release plugin
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release_cd:
+    uses: jenkins-infra/github-reusable-workflows/.github/workflows/maven-cd.yml@v1
+    secrets:
+      MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+      MAVEN_TOKEN: ${{ secrets.MAVEN_TOKEN }}
