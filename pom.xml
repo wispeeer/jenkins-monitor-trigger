@@ -55,6 +55,10 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <defaultGoal>compile</defaultGoal>
+    </build>
+
     <licenses>
         <license>
             <name>MIT License</name>
