@@ -55,7 +55,7 @@ jobs:
     - run: .github/run.sh
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         INTERESTING_CATEGORIES: ${{ inputs.INTERESTING_CATEGORIES }}
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
