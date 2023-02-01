@@ -18,26 +18,7 @@ jobs:
         id: verify-ci-status
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          output_result: 'success'
-
-      - name: Release Drafter
-        uses: release-drafter/release-drafter@v5
-        id: draft
-        if: steps.verify-ci-status.outputs.result == 'success'
-        with:
-          name: next
-          tag: next
-          version: next
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check interesting categories
-        uses: jenkins-infra/interesting-category-action@v1.2.1
-        id: interesting-categories
-        if: steps.verify-ci-status.outputs.result == 'success'
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_DRAFT_BODY: ${{ steps.draft.outputs.body }}
+          output_result: true
 
   release:
     runs-on: ubuntu-latest
